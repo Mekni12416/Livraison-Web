@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Connexion</title>
+    <link rel="icon" href="assets/img/flogo-removebg-preview (1).png">
+    <link rel="stylesheet" href="assets/css/styleform.css">
+   
+</head>
+<body>
+    <div      class="container">
+        <h2>Inscrire</h2>
+        <div class="slide-controls">
+            
+            
+            <label for="login" class="slide login">Signup</label>
+           
+            <div class="slide-tab"></div>
+        </div>
+    <div class="inner">  
+<form class="login">
+
+
+
+
+
+
+
+</form>
+</div> 
+<div   id="y"   class="container2">
+    <form class="signup">
+        <div class="input-box">
+            <label for="Email" class="details">Email :</label>
+            <input type="email" name="Email" id="Email" validate required />
+        </div> 
+        <div class="input-box">
+                <label for="Passwor" class="details">Password</label>
+                <input type="password" name="Password" id="Passwor" required
+                minlength="4" maxlength="10" size="10" />
+        </div> 
+        <div class="buttn">
+            <input type="submit" value="valid" />
+        </div>
+        
+        
+    </form>
+    </div>
+
+</div>
+
+<script>
+    const loginform = document.querySelector("form.login");
+    const signupform = document.querySelector("form.signup");
+    const loginbtn = document.querySelector("label.login");
+    const signupbtn = document.querySelector("label.signup");
+    const innerbtn = document.querySelector("div.inner");
+    const contform = document.querySelector("div.container2");
+    const contform0 = document.querySelector("div.container");
+    const inscFor = document.getElementById("inscrire");
+    const file_show = document.querySelector("div.input-box_f");
+    const botton = document.querySelector("div.button");
+    const cart_num = document.querySelector("div.input-box_N");
+    const cart_ccv = document.querySelector("div.input-box_C");
+    const cart_date = document.querySelector("div.input-box_M");
+    const bfunc = document.getElementById("funct");
+
+    loginbtn.onclick = (()=>{
+        innerbtn.style.marginLeft = "-120%";
+        contform.style.display ="block";
+        contform.style.marginRight = "113px";
+        innerbtn.style.display="none";
+        contform0.style.maxWidth= "404px";
+        contform.style.width= "111%";
+        contform.style.marginLeft ="-10px";
+    });
+    signupbtn.onclick = (()=>{
+        
+        contform.style.marginRight = "-430px";
+        contform.style.display="none";
+        innerbtn.style.display="block";
+        innerbtn.style.marginLeft = "0%";
+        contform0.style.maxWidth= "700px";
+        contform.style.width= "64%";
+        contform.style.marginLeft ="146px";
+        
+    });
+    inscFor.addEventListener ('change', function() {
+        var index =  inscFor.options[inscFor.selectedIndex].value;
+        if(index == "F"){
+        file_show.style.display="block";
+        botton.style.marginLeft="254px";
+        cart_num.style.display="none";
+        cart_ccv.style.display="none";
+        cart_date.style.display="none"; 
+
+        }else{
+            if(index == "A"){
+        file_show.style.display="none";
+        botton.style.marginLeft="254px";
+        cart_num.style.display="block"; 
+        cart_ccv.style.display="block";
+        cart_date.style.display="block";
+        }else{
+        file_show.style.display="none";
+        botton.style.marginLeft="1px";
+        cart_num.style.display="none"; 
+        cart_ccv.style.display="none";
+        cart_date.style.display="none";
+
+        }}
+    });
+    
+bfunc.onclick = (()=>{
+  var x, text;
+
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+ 
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1 || x.length()>16 ) {
+   
+          text = "Input not valid";
+      
+  } else {
+    text=" ";
+  }
+  document.getElementById("demo").innerHTML = text;
+});
+
+bfunc.onclick =(()=>
+{
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  var text;
+  if( document.getElementById("Tel").value.match(phoneno))
+     {
+	   text="";
+	 }
+   else
+     {
+        text="invalid phone number"
+     }
+     document.getElementById("demo1").innerHTML = text;
+});
+
+
+</script>
+</body>
+
+</html>
